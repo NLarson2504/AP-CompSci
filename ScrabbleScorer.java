@@ -83,6 +83,7 @@ public class ScrabbleScorer {
                     }
 
                 }
+            userIn.close();
         } catch(Exception e) {
             System.out.println(e);
         }

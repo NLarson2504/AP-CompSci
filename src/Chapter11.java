@@ -1,3 +1,5 @@
+package src;
+
 import java.sql.SQLOutput;
 import java.util.*;
 
@@ -30,97 +32,53 @@ public class Chapter11 {
         return myList;
     }
     public static boolean isReversed(ArrayList<Integer> firstList,
-
                                      ArrayList<Integer> secondList)
-
     {
-
         for (int j = 0; j < firstList.size() / 2; j++)
-
         {
-
             if (firstList.get(j) != secondList.get(secondList.size() - 1 - j))
-
             {
-
                 return false;
-
             }
-
         }
-
         return true;
-
     }
     public static void insertionSort(int[] elements)
-
     {
-
         for (int j = 1; j < elements.length; j++)
-
         {
-
             int temp = elements[j];
-
             int possibleIndex = j;
             int count = 0;
-
             while (possibleIndex > 0 && temp < elements[possibleIndex - 1])
-
             {
-
                 elements[possibleIndex] = elements[possibleIndex - 1];
-
                 possibleIndex--;   // line 10
             }
-
             elements[possibleIndex] = temp;
             System.out.println("BANG");
         }
-
     }
     public static void selectionSort(int[] elements)
-
     {
-
         for (int j = 0; j < elements.length - 1; j++)
-
         {
-
             int minIndex = j;
-
             for (int k = j + 1; k < elements.length; k++)
-
             {
-
                 if (elements[k] < elements[minIndex])
-
                 {
-
                     minIndex = k;
-
                 }
-
             }
-
             if (j != minIndex)
-
             {
-
                 int temp = elements[j];
-
                 elements[j] = elements[minIndex];
-
                 elements[minIndex] = temp;   // line 19
-                System.out.println("BANG");
             }
 
         }
 
     }
-
-    public static void main(String[] args) {
-
-
-
-    }}
+}

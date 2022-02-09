@@ -56,7 +56,6 @@ public class Chapter11 {
                 possibleIndex--;   // line 10
             }
             elements[possibleIndex] = temp;
-            System.out.println("BANG");
         }
     }
     public static void selectionSort(int[] elements)

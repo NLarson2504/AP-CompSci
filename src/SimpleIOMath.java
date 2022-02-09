@@ -17,7 +17,7 @@ public class SimpleIOMath {
         for (int i = 2; i <= (int)(Math.sqrt(age))+1; i++) {
             if(age%i == 0)
                 return i;
-            }
+        }
         return age;
     }
 

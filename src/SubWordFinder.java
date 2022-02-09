@@ -142,6 +142,34 @@ public class SubWordFinder implements WordFinder {
         System.out.println( sizeFinder.get(index)+ " is the most common suffix with " + max(suffixCounter) + " occurrences.");
     }
 
+    public static void mostCommonPrefix(ArrayList<SubWord> a) {
+        ArrayList<String> Prefixes = new ArrayList<>();
+        ArrayList<String> sizeFinder2 = new ArrayList<>();
+        for(SubWord s : a){
+            Prefixes.add(s.getPrefix());
+            sizeFinder2.add(s.getPrefix());
+        }
+        for(int i = sizeFinder2.size()-1; i >= 0; i--){
+            int occurences = Collections.frequency(sizeFinder2, sizeFinder2.get(i));
+            if(occurences > 1) {
+                sizeFinder2.remove(i);
+            }
+        }
+        Collections.sort(sizeFinder2);
+        int[] prefixCounter = new int[sizeFinder2.size()];
+        Arrays.fill(prefixCounter, 0);
+        for(String thingy : sizeFinder2){
+            for(String otherThingy : Prefixes){
+                if(otherThingy.equals(thingy)){
+                    prefixCounter[sizeFinder2.indexOf(thingy)] += 1;
+                }
+            }
+        }
+        List<Integer> list = Arrays.stream(prefixCounter).boxed().toList();
+        int index = list.indexOf(max(prefixCounter));
+        System.out.println( sizeFinder2.get(index)+ " is the most common prefix with " + max(prefixCounter) + " occurrences.");
+    }
+
 
     /**
      * The main entry point of the code
@@ -155,5 +183,6 @@ public class SubWordFinder implements WordFinder {
         System.out.println("There are " + app.getSubWords().size() + " words with subwords in the list");
         System.out.println();
         mostCommonSuffix(app.getSubWords());
+        mostCommonPrefix(app.getSubWords());
     }
 }

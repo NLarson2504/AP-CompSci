@@ -101,19 +101,19 @@ public class RomanToDecimal {
                 //INVALID CHARACTER
                 return -1;
         }
-    if(roman.toUpperCase().indexOf("IV") != -1)
-        decimal -= 2;
-    if(roman.toUpperCase().indexOf("IX") != -1)
-        decimal -= 2;
-    if(roman.toUpperCase().indexOf("XL") != -1)
-        decimal -= 20;
-    if(roman.toUpperCase().indexOf("XC") != -1)
-        decimal -= 20;
-    if(roman.toUpperCase().indexOf("CD") != -1)
-        decimal -= 200;
-    if(roman.toUpperCase().indexOf("CM") != -1)
-        decimal -= 200;
-    return decimal;
+        if(roman.toUpperCase().indexOf("IV") != -1)
+            decimal -= 2;
+        if(roman.toUpperCase().indexOf("IX") != -1)
+            decimal -= 2;
+        if(roman.toUpperCase().indexOf("XL") != -1)
+            decimal -= 20;
+        if(roman.toUpperCase().indexOf("XC") != -1)
+            decimal -= 20;
+        if(roman.toUpperCase().indexOf("CD") != -1)
+            decimal -= 200;
+        if(roman.toUpperCase().indexOf("CM") != -1)
+            decimal -= 200;
+        return decimal;
     }
 
     /**
@@ -160,39 +160,39 @@ public class RomanToDecimal {
                     isOn = false;
                 }
 
-            while(!RTD && DTR) { //DECIMAL TO ROMAN
-                String[] alphabet = {"a", "b", "c", "d", "e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"};
-                boolean works = true;
-                int thing = 0;
-                System.out.println("Enter Decimal Value: ");
-                String thingy = input.nextLine();
-                for (String s : alphabet) {
-                    if (thingy.contains(s)) {
-                        thing = -1;
+                while(!RTD && DTR) { //DECIMAL TO ROMAN
+                    String[] alphabet = {"a", "b", "c", "d", "e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"};
+                    boolean works = true;
+                    int thing = 0;
+                    System.out.println("Enter Decimal Value: ");
+                    String thingy = input.nextLine();
+                    for (String s : alphabet) {
+                        if (thingy.contains(s)) {
+                            thing = -1;
+                        }
+                    }
+                    if(thing != -1) {
+                        thing = Integer.valueOf(thingy);
+                        works = false;
+                    } else {
+                        System.out.println("INVALID INPUT >:(");
+                    }
+                    String romVal = decimalToRoman(thing);
+                    System.out.println("Input: " + thing + " => Output: " + romVal);
+                    System.out.println("Roman To Decimal / Decimal To Roman / Exit (r/d/e)");
+                    decision = input.nextLine().toLowerCase();
+                    if (decision.equals("r")) {
+                        RTD = true;
+                        DTR = false;
+
+                    }
+                    if (decision.equals("e")) {
+                        System.out.println("WOAH");
+                        DTR = false;
+                        isOn = false;
+
                     }
                 }
-                if(thing != -1) {
-                    thing = Integer.valueOf(thingy);
-                    works = false;
-                } else {
-                    System.out.println("INVALID INPUT >:(");
-                }
-                String romVal = decimalToRoman(thing);
-                System.out.println("Input: " + thing + " => Output: " + romVal);
-                System.out.println("Roman To Decimal / Decimal To Roman / Exit (r/d/e)");
-                decision = input.nextLine().toLowerCase();
-                if (decision.equals("r")) {
-                    RTD = true;
-                    DTR = false;
-
-                }
-                if (decision.equals("e")) {
-                    System.out.println("WOAH");
-                    DTR = false;
-                    isOn = false;
-
-                }
-            }
 
             }
 

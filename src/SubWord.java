@@ -56,4 +56,8 @@ public class SubWord implements Comparable<SubWord> {
     public String getSuffix(){
         return sub2;
     }
+
+    public String getPrefix(){
+        return sub1;
+    }
 }

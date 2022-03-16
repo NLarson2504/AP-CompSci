@@ -14,12 +14,12 @@ public class SpecialCheckingAccount extends CheckingAccount{
         if(curBal.compareTo(min) >= 0)
             decreaseBalance(amount);
         else{
-            decreaseBalance(amount + super.getCheckCharge());
+            super.clearCheck(amount);
         }
     }
 
     public double monthlyInterest() {
 
-        return (super.currentBalance() > minimumBalance) ? super.currentBalance()*interestRate/12 : super.monthlyInterest();
+        return (super.currentBalance() >= minimumBalance) ? super.currentBalance()*interestRate/12 : super.monthlyInterest();
     }
 }

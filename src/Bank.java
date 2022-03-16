@@ -11,9 +11,7 @@ public class Bank
     public void postMonthlyInterest()
     {
         for(Account a : accounts){
-            System.out.println("BEFORE: " + a.currentBalance());
             a.deposit(a.monthlyInterest());
-            System.out.println("AFTER: " + a.currentBalance());
         }
     }
 

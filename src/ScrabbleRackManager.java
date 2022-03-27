@@ -43,23 +43,8 @@ public class ScrabbleRackManager {
         Collections.shuffle(tiles);
 
         //add to tileRack
-        //for(int i = 0; i<7; i++)
-            //tileRack.add(tiles.remove((int)(Math.random()*tiles.size())));
-
-        //System.out.println("DICT: " + dictionary);
-        tileRack.add("A");
-        tileRack.add("B");
-        tileRack.add("D");
-        tileRack.add("O");
-        tileRack.add("C");
-        tileRack.add("K");
-        tileRack.add("E");
-
-        base = new int[26];
-        for (String s : tileRack) {
-            base[alpha.indexOf(s.toLowerCase())] += 1;
-        }
-        System.out.println("BASE: " + Arrays.toString(base));
+        for(int i = 0; i<7; i++)
+            tileRack.add(tiles.remove((int)(Math.random()*tiles.size())));
     }
 
     /** displays the contents of the player's tile rack */
@@ -72,22 +57,23 @@ public class ScrabbleRackManager {
      * @param word the letters being checked to see if it makes a word
      * @return returns true if it is a word, false if not
      */
-    //TODO: Write this method
     public boolean isPlayable(String word){
-        int[] breakdown = new int[26];
-        for(int i = 0; i < word.length(); i++){
-            breakdown[alpha.indexOf(word.toLowerCase().charAt(i))] += 1;
+        boolean decision = true;
+        ArrayList<String> tempRack = new ArrayList<>(tileRack);
+
+        if (word.length() > 7){
+            decision = false;
         }
 
-        String Break = Arrays.toString(breakdown);
-        String baser = Arrays.toString(base);
-
-        boolean decision = true;
-
-        for(int i = 0; i < 26; i++){
-            if ((base[i] == 1) && (breakdown[i] != 1)) {
+        for(int i = word.length()-1; i > 0 ; i--){
+            if (word.substring(i, i + 1).equals(tileRack.get(0)) ||  word.substring(i, i + 1).equals(tileRack.get(1)) || word.substring(i, i + 1).equals(tileRack.get(2)) || word.substring(i, i + 1).equals(tileRack.get(3)) || word.substring(i, i + 1).equals(tileRack.get(4)) || word.substring(i, i + 1).equals(tileRack.get(5)) || word.substring(i, i + 1).equals(tileRack.get(6))){
+                if(!tempRack.contains(word.substring(i, i + 1)))
+                    decision = false;
+                else {
+                    tempRack.remove(tempRack.indexOf(word.substring(i, i + 1)));
+                }
+            } else {
                 decision = false;
-                break;
             }
         }
         return (decision);
@@ -143,16 +129,11 @@ public class ScrabbleRackManager {
                 playList.addAll(a);
             }
         }
-        System.out.println("LEN: " + playList.size());
-        for(int k = playList.size()-1; k > 0; k--){
-            if(playList.get(k).length() > 7){
-                playList.remove(k);
-            }
-            if(!isPlayable(playList.get(k))){
-                playList.remove(k);
+        for(int m = playList.size()-1; m > 0; m--){
+            if(!isPlayable(playList.get(m))){
+                playList.remove(m);
             }
         }
-        System.out.println(playList);
         return playList;
     }
 
@@ -167,10 +148,10 @@ public class ScrabbleRackManager {
                 word += "*";
                 bingo = true;
             }
-            //System.out.printf("%-10s", word);
-            //if((i+1) % 10 == 0){System.out.println();}
-            //if(bingo) {System.out.println("\n* Denotes BINGO");}
+            System.out.printf("%-10s", word);
+            if((i+1) % 10 == 0){System.out.println();}
             }
+        if(bingo) {System.out.println("\n* Denotes BINGO");}
     }
     /** main method for the class; use only 3 command lines in main DONE */
     public static void main(String[] args){

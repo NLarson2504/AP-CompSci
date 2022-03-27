@@ -41,7 +41,7 @@ public class SubWordFinder implements WordFinder {
         }
     }
 
-    @Override
+
     /**
      * See comment on wordFinder.java
      */

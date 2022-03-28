@@ -80,45 +80,6 @@ public class ScrabbleRackManager {
         return (true);
     }
 
-/*
-    private boolean bogoSortJustKiddingItsBinarySearch(ArrayList<String> listy, String word) {
-        int left = 0, right = listy.size() - 1;
-
-        while (left <= right)
-        {
-            int mid = left + (right - left) / 2;
-
-            // Check if x is present at mid
-            if (listy.get(mid).compareTo(word) == 0)
-                return true;
-            // If x greater, ignore left half
-            if (listy.get(mid).compareTo(word) < 0)
-                left = mid + 1;
-                // If x is smaller, ignore right half
-            else
-                right = mid - 1;
-        }
-        // if we reach here, then element was
-        // not present
-        return false;
-    }
-
-    public ArrayList<String> generate(ArrayList<String> tileRack){
-        ArrayList<String> matches = new ArrayList<>();
-        String word = "";
-        for(int i = 0; i < tileRack.size(); i++){
-            word = "";
-            for(int k=0; k < tileRack.size(); k++){
-                word += tileRack.get(k);
-            }
-            if (isPlayable(word))
-                matches.add(word);
-            tileRack.add(tileRack.remove(0));
-        }
-        return matches;
-    }
-*/
-
     /** builds and returns an ArrayList of String objects that are values pulled
      from
      * the dictionary/database based on the available letters in the user's tile
@@ -154,6 +115,7 @@ public class ScrabbleRackManager {
             }
         if(bingo) {System.out.println("\n* Denotes BINGO");}
     }
+
     /** main method for the class; use only 3 command lines in main DONE */
     public static void main(String[] args){
         ScrabbleRackManager app = new ScrabbleRackManager();

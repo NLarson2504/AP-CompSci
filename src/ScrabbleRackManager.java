@@ -54,7 +54,7 @@ public class ScrabbleRackManager {
     }
 
     /**
-     * Determines if a word is playable and in the dictionary using binary search
+     * Determines if a word is playable with given tiles
      * @param word the letters being checked to see if it makes a word
      * @return returns true if it is a word, false if not
      */

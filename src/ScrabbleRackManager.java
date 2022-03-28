@@ -39,6 +39,7 @@ public class ScrabbleRackManager {
             e.printStackTrace();
             System.out.println("Error opening file...");
         }
+
         //shuffle tiles
         Collections.shuffle(tiles);
 
@@ -58,25 +59,16 @@ public class ScrabbleRackManager {
      * @return returns true if it is a word, false if not
      */
     public boolean isPlayable(String word){
-        boolean decision = true;
         ArrayList<String> tempRack = new ArrayList<>(tileRack);
-
-        if (word.length() > 7){
-            decision = false;
-        }
-
-        for(int i = word.length()-1; i > 0 ; i--){
-            if (word.substring(i, i + 1).equals(tileRack.get(0)) ||  word.substring(i, i + 1).equals(tileRack.get(1)) || word.substring(i, i + 1).equals(tileRack.get(2)) || word.substring(i, i + 1).equals(tileRack.get(3)) || word.substring(i, i + 1).equals(tileRack.get(4)) || word.substring(i, i + 1).equals(tileRack.get(5)) || word.substring(i, i + 1).equals(tileRack.get(6))){
-                if(!tempRack.contains(word.substring(i, i + 1)))
-                    decision = false;
-                else {
-                    tempRack.remove(tempRack.indexOf(word.substring(i, i + 1)));
-                }
+        if (word.length() > 7){ return false; }
+        for(int i = 0; i < word.length() ; i++){
+            if(!tempRack.contains(word.substring(i, i + 1))) {
+                return false;
             } else {
-                decision = false;
+                tempRack.remove(tempRack.indexOf(word.substring(i, i + 1)));
             }
         }
-        return (decision);
+        return (true);
     }
 
 /*

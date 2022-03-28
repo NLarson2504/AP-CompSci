@@ -60,12 +60,21 @@ public class ScrabbleRackManager {
      */
     public boolean isPlayable(String word){
         ArrayList<String> tempRack = new ArrayList<>(tileRack);
+        int spaces = 0;
+
+        for(String a : tempRack)
+            if (a.equals(" "))
+                spaces+=1;
+
         if (word.length() > 7){ return false; }
         for(int i = 0; i < word.length() ; i++){
-            if(!tempRack.contains(word.substring(i, i + 1))) {
+            if(!tempRack.contains(word.substring(i, i + 1)) && spaces == 0) {
                 return false;
             } else {
-                tempRack.remove(tempRack.indexOf(word.substring(i, i + 1)));
+                if (!tempRack.contains(word.substring(i, i + 1)))
+                    spaces -= 1;
+                else
+                    tempRack.remove(tempRack.indexOf(word.substring(i, i + 1)));
             }
         }
         return (true);
@@ -121,7 +130,7 @@ public class ScrabbleRackManager {
                 playList.addAll(a);
             }
         }
-        for(int m = playList.size()-1; m > 0; m--){
+        for(int m = playList.size()-1; m >= 0; m--){
             if(!isPlayable(playList.get(m))){
                 playList.remove(m);
             }

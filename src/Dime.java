@@ -1,5 +1,11 @@
 package src;
 
+
+/**
+ * Dime Object is a type of coin
+ * @version Thursday 3/31/22
+ * @author 23larson
+ */
 public class Dime extends Coin{
 
     /**

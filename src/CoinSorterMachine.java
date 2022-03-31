@@ -6,6 +6,12 @@ import java.util.ArrayList;
 import java.util.Locale;
 import java.util.Scanner;
 
+
+/**
+ * CoinSorterMachine opens a data file, reads, and prints a summary of the deposit
+ * @version Thursday 3/31/22
+ * @author 23larson
+ */
 public class CoinSorterMachine {
     private ArrayList<Coin> coins;
     private int pennyNum;

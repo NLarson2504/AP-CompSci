@@ -1,5 +1,10 @@
 package src;
 
+/**
+ * Coin Object is an abstract class for all coins
+ * @version Thursday 3/31/22
+ * @author 23larson
+ */
 public abstract class Coin {
     public abstract double getValue();
     public abstract String getName();

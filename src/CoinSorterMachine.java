@@ -112,7 +112,9 @@ public class CoinSorterMachine {
     }
 
 
-    // return the total value of all Coin objects stored in coins as a double
+    /**
+     * returns the total value of all Coin objects stored in coins as a double
+      */
     public double getTotalValue(){
         double val = 0;
         for(Coin c : coins)
@@ -120,7 +122,9 @@ public class CoinSorterMachine {
         return val;
     }
 
-    // main method for the class should use these exact three lines of code
+    /**
+     * main method for the class CoinSorterMachine
+      */
     public static void main(String[] args){
         CoinSorterMachine app = new CoinSorterMachine();
         app.depositCoins();

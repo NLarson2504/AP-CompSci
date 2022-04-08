@@ -19,7 +19,6 @@ public class SpecialCheckingAccount extends CheckingAccount{
     }
 
     public double monthlyInterest() {
-
         return (super.currentBalance() >= minimumBalance) ? super.currentBalance()*interestRate/12 : super.monthlyInterest();
     }
 }

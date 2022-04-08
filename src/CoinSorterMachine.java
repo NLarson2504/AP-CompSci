@@ -132,8 +132,11 @@ public class CoinSorterMachine {
      * main method for the class CoinSorterMachine
       */
     public static void main(String[] args){
-        CoinSorterMachine app = new CoinSorterMachine();
-        app.depositCoins();
-        app.printDepositSummary();
+        //CoinSorterMachine app = new CoinSorterMachine();
+        //app.depositCoins();
+        //app.printDepositSummary();
+
+        Coin myCoin = new Nickel();
+        System.out.println(myCoin.getName());
     }
 }

@@ -2,7 +2,7 @@ package src;
 
 import java.util.Comparator;
 
-public class WayPointComparator implements Comparator<T> {
+public class WayPointComparator implements Comparator<Waypoint> {
     private int category;
     private boolean asc;
     public WayPointComparator(int c, boolean a){
@@ -23,11 +23,11 @@ public class WayPointComparator implements Comparator<T> {
         int diff = 0;
         if (category == 1)
             diff = one.getType().compareTo(two.getType());
-        else if (category == 2) {
+        else if (category == 2)
             diff = one.getName().compareTo(two.getName());
-        } else if (category == 3) {
+        else if (category == 3)
             diff = one.getState().compareTo(two.getState());
-        } else if (category == 4) {
+        else if (category == 4) {
             Double d1 = one.getToSpringer();
             Double d2 = two.getToSpringer();
             diff = d1.compareTo(d2);

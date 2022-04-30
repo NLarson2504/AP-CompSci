@@ -3,6 +3,7 @@ package src;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.Scanner;
 
 public class TrailDatabase {
@@ -10,28 +11,29 @@ public class TrailDatabase {
     private boolean asc;
     private int searchTerm;
 
-    public TrailDatabase(){
+    public TrailDatabase() {
         database = new ArrayList<Waypoint>();
         populateDatabase();
     }
 
-    public void populateDatabase(){
-        try{
+    public void populateDatabase() {
+        try {
             Scanner in = new Scanner(new File("datafiles/apptrailDB.txt"));
-            while(in.hasNext()){
+            while (in.hasNext()) {
                 String[] data = in.nextLine().split("\t");
                 database.add(new Waypoint(data[0], data[1], data[2], Double.parseDouble(data[5]), Double.parseDouble(data[6]), Integer.parseInt(data[7])));
             }
             in.close();
-        }catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             System.out.println("Error opening file...");
         }
     }
 
-    public void getSearchTerm(){
+    public void getSearchTerm() {
         System.out.println("*** Welcome to the Appalachian Trail Database ***\n" +
                 "\t+ Menu of search terms to use for sorting waypoints +\n" +
+                "\tTY: by name\n" +
                 "\tNA: by name\n" +
                 "\tST: by state\n" +
                 "\tDS: by distance to Springer\n" +
@@ -49,21 +51,25 @@ public class TrailDatabase {
             case "EL" -> searchTerm = 6;
             default -> searchTerm = 0;
         }
-        if (searchTerm !=0) {
+        if (searchTerm != 0) {
             System.out.println("Enter 'A' to sort in ascending order or 'D' to sort in descending order: ");
             term = in.nextLine();
             asc = (term.toLowerCase().equals("a"));
         }
     }
 
-    public void printDB(){
-        for(Waypoint w : database)
+    public void printDB() {
+        for (Waypoint w : database)
             System.out.println(w);
     }
 
-    public void sortDB(){
-        Collections.sort(database, new WayPointComparator(searchTerm, asc));
+    public void sortDB() {
+        WayPointComparator jeff = new WayPointComparator(searchTerm, asc);
+        MergeSort carl = new MergeSort(database, jeff);
+        carl.redHotChiliPeppers(0, database.size()-1);
+        database = carl.getYoDataBaseUp();
     }
+
 
     public static void main(String[] args) {
         TrailDatabase db = new TrailDatabase();

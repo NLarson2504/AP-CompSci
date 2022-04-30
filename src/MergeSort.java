@@ -2,18 +2,35 @@ package src;
 
 import java.util.ArrayList;
 
+/**
+ * MY MERGESORT ALGORITHM YAY
+ */
 public class MergeSort {
     private final ArrayList<Waypoint> arrayToSort;
     private WayPointComparator wayPC;
 
+    /**
+     * Constructor for a mergesort object
+     * @param arrayToSort arraylist that needs to be sorted
+     * @param w the comparator that will be used to sort the arraylist
+     */
     public MergeSort(ArrayList<Waypoint> arrayToSort, WayPointComparator w) {
         this.arrayToSort = arrayToSort; wayPC = w;
     }
 
+    /**
+     * method for data retrieval
+     * @return returns the sorted arrayList
+     */
     public ArrayList<Waypoint> getYoDataBaseUp() {
         return arrayToSort;
     } // getSortedList
 
+    /**
+     * AKA divideArrayElements is a method that divides the arrayList into two parts which will get MERGED
+     * @param indexStart beginning index of list
+     * @param indexEnd end index of list
+     */
     public void redHotChiliPeppers(int indexStart, int indexEnd) { //divideArrayElements
 
         if (indexStart < indexEnd && (indexEnd - indexStart) >= 1) {
@@ -26,6 +43,12 @@ public class MergeSort {
         }
     }
 
+    /**
+     * MERGES THE ARRAYLISTS
+     * @param indexStart starting index to merge
+     * @param indexMiddle middle element of the arrayList
+     * @param indexEnd end index to merge
+     */
     public void mergeArrayElements(int indexStart, int indexMiddle, int indexEnd) {
 
         ArrayList<Waypoint> tempArray = new ArrayList<>();

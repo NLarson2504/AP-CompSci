@@ -1,21 +1,36 @@
 package src;
 
+/**
+ * @version April 29th 2022
+ * @author Nikolas Larson
+ * This is a trail database that sorts waypoints based on the user's request.
+ */
+
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Scanner;
 
+/**
+ * Class for the Traildatabase. Holds information and is where the main entry point can be found.
+ */
 public class TrailDatabase {
     private ArrayList<Waypoint> database;
     private boolean asc;
     private int searchTerm;
 
+    /**
+     * Blank Constructor for database
+     */
     public TrailDatabase() {
         database = new ArrayList<Waypoint>();
         populateDatabase();
     }
 
+    /**
+     * Builds the database by reading the file "apptrailDB.txt"
+     */
     public void populateDatabase() {
         try {
             Scanner in = new Scanner(new File("datafiles/apptrailDB.txt"));
@@ -30,6 +45,9 @@ public class TrailDatabase {
         }
     }
 
+    /**
+     * takes user input for which search term should be searched by.
+     */
     public void getSearchTerm() {
         System.out.println("*** Welcome to the Appalachian Trail Database ***\n" +
                 "\t+ Menu of search terms to use for sorting waypoints +\n" +
@@ -58,11 +76,18 @@ public class TrailDatabase {
         }
     }
 
+
+    /**
+     * prints the database in the correct format.
+     */
     public void printDB() {
         for (Waypoint w : database)
             System.out.println(w);
     }
 
+    /**
+     * sorts the database with my own specialized mergesort algorithm for waypoints. Ok it's not that special, but I like it so that good. Also, why are you still reading this javadoc comment. Stop. just stop reading.
+     */
     public void sortDB() {
         WayPointComparator jeff = new WayPointComparator(searchTerm, asc);
         MergeSort carl = new MergeSort(database, jeff);
@@ -70,7 +95,10 @@ public class TrailDatabase {
         database = carl.getYoDataBaseUp();
     }
 
-
+    /**
+     * BIG BOY Main entry point for the code.
+     * @param args are user defined arguments passed into the JVM
+     */
     public static void main(String[] args) {
         TrailDatabase db = new TrailDatabase();
         while(true) {

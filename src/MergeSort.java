@@ -3,6 +3,8 @@ package src;
 import java.util.ArrayList;
 
 /**
+ * @version April 29th 2022
+ * @author Nikolas Larson
  * MY MERGESORT ALGORITHM YAY
  */
 public class MergeSort {

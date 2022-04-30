@@ -1,5 +1,10 @@
 package src;
 
+/**
+ * @version April 29th 2022
+ * @author Nikolas Larson
+ * The waypoint class for storing info. Should really be using a record but its not in the AP curriculum so what are you gonna do am I right.
+ */
 public class Waypoint implements Comparable<Waypoint>{
     private String type, name, state;
     private double toSpringer, toKatahdin;

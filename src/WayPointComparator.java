@@ -3,6 +3,8 @@ package src;
 import java.util.Comparator;
 
 /**
+ * @version April 29th 2022
+ * @author Nikolas Larson
  * Is a comparator for waypoints and allows waypoints to be compared on every attribute attributed to them.
  */
 public class WayPointComparator implements Comparator<Waypoint> {

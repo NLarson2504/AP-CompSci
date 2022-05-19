@@ -3,17 +3,18 @@ import java.awt.HeadlessException;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.*;
+import java.util.Arrays;
 
 import javax.swing.*;
 
 /**
  * ConnectFourGUI drives the GUI for the ConnectFour game.
- * 
+ * Newww thing
  * @author Julian Cochran (julian.cochran@da.org)
  * @version 1.0 (02/20/2012)
  */
 public class ConnectFourGUI extends JFrame implements ActionListener {
-	
+	/*Cooment thing */
 	private static final long serialVersionUID = 1L;
 	private Container container;
 	private JButton[][] buttons;
@@ -83,6 +84,7 @@ public class ConnectFourGUI extends JFrame implements ActionListener {
 				game.newGame();
 				setButtonsState(true);
 				refreshBoard(game.getBoard());
+				directionsLabel.setText(("Player " + game.getCurrentPlayer() + " goes first."));
 				topLabel.setText("Click any button in a column to place your disk in that column.");
 			}
 			if(timer.isRunning())

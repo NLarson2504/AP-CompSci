@@ -14,7 +14,6 @@ import javax.swing.*;
  * @version 1.0 (02/20/2012)
  */
 public class ConnectFourGUI extends JFrame implements ActionListener {
-	/*Cooment thing */
 	private static final long serialVersionUID = 1L;
 	private Container container;
 	private JButton[][] buttons;

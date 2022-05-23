@@ -1,7 +1,6 @@
 package src;
 
 public class ConnectFour implements BoardGame{
-    /* Comment comment comment */
     private int[][] board; // game board for playing ConnectFour
     private int currentPlayer; // stores the current player's turn
     private Position[] winningPositions; //stores row+colum coordinates when someone wins

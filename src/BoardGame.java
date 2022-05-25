@@ -3,7 +3,7 @@ package src;
  * BoardGame describes the behaviors of a 2-person game played
  *   on a rectangular grid.
  * @author Jo Perry
- * 
+ * @Version 1.0
  * Used with permission 01/22/2012
  * YOU MAY NOT MODIFY THIS FILE IN ANY WAY
  */
